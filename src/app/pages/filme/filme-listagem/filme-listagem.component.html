@@ -4,11 +4,13 @@
       <th>Código</th>
       <th>Título filme</th>
       <th>Duração</th>
+      <th>Imagem</th>
       <th style="text-align: center;">...</th>
     </tr>
     <tr *ngFor="let item of provider">
       <td>{{item.id}}</td>
       <td>{{item.tituloFilme}}</td>
+      <td>{{item.duracaoFilme}}</td>
       <td>
         <img
           [src]="item.linkImagem"
@@ -17,7 +19,8 @@
       <td style="text-align: center;">
         <button
           mat-button
-          (click)="editar(item)">
+          [routerLink]="['edicao']"
+          [queryParams]="{id: item.id}">
           <i class="fa fa-edit"></i>
         </button>
       </td>

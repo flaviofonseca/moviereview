@@ -1,6 +1,6 @@
 <app-crud-formulario
   [desabilitarBotaoSalvar]="formGroup.invalid"
-  [titulo]="'Cadastro de filme'"
+  [titulo]="tituloPagina()"
   (salvarEvent)="salvarFilme()"
   (novoEvent)="novoFilme()">
   <form [formGroup]="formGroup">
@@ -21,6 +21,7 @@
             required
             formControlName="duracaoFilme"
             placeholder="Duração do filme">
+          <mat-hint>Valor em minutos</mat-hint>
         </mat-form-field>
       </div>
       <div class="col-md-6">
