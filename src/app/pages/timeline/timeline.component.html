@@ -1,0 +1,14 @@
+<ng-container *ngIf="!atualizandoDados; else ultimaVerificacaoTemplate">
+  {{ultimaVerificacao | date :'dd-MMM-yy h:mm:ss a '}}
+</ng-container>
+<ng-template #ultimaVerificacaoTemplate>Carregando dados</ng-template>
+
+<div
+  style="display: flex"
+  *ngFor="let item of listaAvaliacoes">
+  <img
+    [src]="item.linkImagem"
+    alt>
+  <h4 style="padding-left: 25px;"><strong>{{item.tituloFilme}}</strong></h4>
+  <div [appColorMediaNota]="item.mediaNotas">{{item.mediaNotas | notamedia }}</div>
+</div>

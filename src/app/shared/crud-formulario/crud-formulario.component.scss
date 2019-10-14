@@ -1,0 +1,17 @@
+.div-botoes {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.div-botoes button {
+  margin-left: 5px;
+}
+
+.botao-salvar {
+  background-color: lawngreen;
+}
+
+.botao-novo {
+  background-color: #0065ad;
+}

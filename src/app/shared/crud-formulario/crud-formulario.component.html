@@ -1,0 +1,23 @@
+<div>
+  <h1><strong>{{titulo}}</strong></h1>
+</div>
+<div>
+  <ng-content></ng-content>
+</div>
+<div class="div-botoes">
+  <button
+    mat-raised-button
+    [disabled]="desabilitarBotaoSalvar"
+    (click)="salvar()"
+    class="botao-salvar">
+    Salvar
+  </button>
+  <button
+    class="botao-novo"
+    color="primary"
+    (click)="novo()"
+    mat-raised-button>
+    Novo
+  </button>
+  <ng-content select="content-botoes-crud"></ng-content>
+</div>

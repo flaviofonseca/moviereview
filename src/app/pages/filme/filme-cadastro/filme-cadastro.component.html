@@ -1,0 +1,40 @@
+<app-crud-formulario
+  [desabilitarBotaoSalvar]="formGroup.invalid"
+  [titulo]="'Cadastro de filme'"
+  (salvarEvent)="salvarFilme()"
+  (novoEvent)="novoFilme()">
+  <form [formGroup]="formGroup">
+    <div class="row">
+      <div class="col-md-3">
+        <mat-form-field>
+          <input
+            matInput
+            required
+            formControlName="tituloFilme"
+            placeholder="Título do filme">
+        </mat-form-field>
+      </div>
+      <div class="col-md-3">
+        <mat-form-field>
+          <input
+            matInput
+            required
+            formControlName="duracaoFilme"
+            placeholder="Duração do filme">
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field>
+          <input
+            matInput
+            required
+            formControlName="linkImagem"
+            placeholder="Link imagem">
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+  <img
+    *ngIf="formGroup.get('linkImagem').value"
+    [src]="formGroup.get('linkImagem').value">
+</app-crud-formulario>

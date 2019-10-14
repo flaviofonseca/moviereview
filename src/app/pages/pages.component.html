@@ -1,0 +1,12 @@
+<clr-main-container>
+  <app-notificacao></app-notificacao>
+  <app-header
+    (sidenavChange)="sidenavChange()"
+    (logoutApp)="logoutApp()"></app-header>
+  <div class="content-container">
+    <app-sidenav [(collapsed)]="collapsed"></app-sidenav>
+    <div class="content-area">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</clr-main-container>
