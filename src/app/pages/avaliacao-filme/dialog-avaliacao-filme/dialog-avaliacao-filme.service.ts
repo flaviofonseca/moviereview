@@ -10,10 +10,15 @@ export class DialogAvaliacaoFilmeService {
     private dialog: MatDialog
   ) { }
 
-  openDialogAvaliacaoFilme() {
+  openDialogAvaliacaoFilme(filme) {
     const return$ = new Subject();
 
-    const options = {};
+    const options = {
+      width: '600px',
+      data: {
+        tituloFilme: filme.tituloFilme
+      }
+    };
     const dialogRef = this.dialog.open(DialogAvaliacaoFilmeComponent, options);
     dialogRef.afterOpened().subscribe(() => {
       return$.next(dialogRef.componentInstance);

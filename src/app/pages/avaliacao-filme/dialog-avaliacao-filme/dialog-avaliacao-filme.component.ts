@@ -16,7 +16,9 @@ export class DialogAvaliacaoFilmeComponent implements OnInit {
     public dialogRef: MatDialogRef<DialogAvaliacaoFilmeComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private fb: FormBuilder
-  ) { }
+  ) {
+    this.criarFormulario();
+  }
 
   ngOnInit() {
   }

@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NotaFilmeService } from 'src/app/services/nota-filme.service';
 import { Subscription, interval } from 'rxjs';
 import { take, switchMap, map, finalize } from 'rxjs/operators';
+import { DialogAvaliacaoFilmeService } from '../avaliacao-filme/dialog-avaliacao-filme/dialog-avaliacao-filme.service';
 
 @Component({
   selector: 'app-timeline',
@@ -17,6 +18,7 @@ export class TimelineComponent implements OnInit, OnDestroy {
   resumoNotasFilmes$: Subscription;
 
   constructor(
+    private dialogAvaliacaoService: DialogAvaliacaoFilmeService,
     private notaFilmeService: NotaFilmeService
   ) { }
 
@@ -56,6 +58,10 @@ export class TimelineComponent implements OnInit, OnDestroy {
     this.listaAvaliacoes = event;
 
     this.ultimaVerificacao = new Date();
+  }
+
+  avaliarFilme(filme) {
+    this.dialogAvaliacaoService.openDialogAvaliacaoFilme(filme);
   }
 
 }

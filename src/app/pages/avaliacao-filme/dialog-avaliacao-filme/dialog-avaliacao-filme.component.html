@@ -1,17 +1,24 @@
 <h1>Avaliar filme {{data.tituloFilme}}</h1>
 <form [formGroup]="formGroup">
-  <mat-form-field>
-    <input
-      matInput
-      formControlName="nota"
-      placeholder="Nota"
-      type="number">
-  </mat-form-field>
-  <mat-form-field>
-    <textarea
-      matInput
-      formControlName="comentario"
-      placeholder="Comentário"></textarea>
-  </mat-form-field>
-
+  <div class="row">
+    <div class="col-md-3">
+      <mat-form-field>
+        <input
+          matInput
+          formControlName="notaFilme"
+          placeholder="Nota"
+          type="number">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <mat-form-field>
+        <textarea
+          matInput
+          formControlName="comentario"
+          placeholder="Comentário"></textarea>
+      </mat-form-field>
+    </div>
+  </div>
 </form>

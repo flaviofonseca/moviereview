@@ -4,6 +4,8 @@ import { TimelineComponent } from './timeline.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ColorMediaNotaDirective } from './components/color-media-nota.directive';
 import { NotaMediaPipe } from './components/nota-media.pipe';
+import { MatButtonModule } from '@angular/material/button';
+import { AvaliacaoFilmeModule } from '../avaliacao-filme/avaliacao-filme.module';
 
 const routes: Routes = [
   {
@@ -20,6 +22,8 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
+    MatButtonModule,
+    AvaliacaoFilmeModule,
     RouterModule.forChild(routes)
   ]
 })

@@ -11,4 +11,5 @@
     alt>
   <h4 style="padding-left: 25px;"><strong>{{item.tituloFilme}}</strong></h4>
   <div [appColorMediaNota]="item.mediaNotas">{{item.mediaNotas | notamedia }}</div>
+  <a mat-button routerLink="." (click)="avaliarFilme(item)">Avaliar filme</a>
 </div>
