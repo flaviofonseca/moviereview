@@ -9,11 +9,16 @@ import { NotificacaoComponent } from './layout/notificacao/notificacao.component
 
 
 @NgModule({
-  declarations: [PagesComponent, SidenavComponent, HeaderComponent, NotificacaoComponent],
+  declarations: [
+    PagesComponent,
+    SidenavComponent,
+    HeaderComponent,
+    NotificacaoComponent
+  ],
   imports: [
     CommonModule,
     ClarityModule,
     PagesRoutingModule
-  ]
+  ],
 })
 export class PagesModule { }
