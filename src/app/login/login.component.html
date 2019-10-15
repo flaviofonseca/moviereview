@@ -1,31 +1,79 @@
-<div class="formulario-login">
-  <div class="col-md-12">
-    <mat-form-field>
-      <input
-        matInput
-        [(ngModel)]="credenciais.login"
-        placeholder="Usuário">
-    </mat-form-field>
+<div class="allContent">
+  <div *ngIf="!naoCadastrado" class="loginArea">
+    <div class="title">
+      <h1>IMDb</h1>
+    </div>
+    <div class="formInputs">
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          placeholder="Login"
+          [(ngModel)]="credenciais.login"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          type="password"
+          placeholder="Senha"
+          [(ngModel)]="credenciais.senha"
+        />
+      </mat-form-field>
+    </div>
+    <div style="display: flex; justify-content: center;" *ngIf="loginInvalido">
+      <span style="color: #F5C518; font-weight: bold;"
+        >Usuário ou senha incorretos!</span
+      >
+    </div>
+    <div class="buttons">
+      <div (click)="autenticar()" class="btnEntrar">Entrar</div>
+      <div (click)="cadastrar()" class="btnCadastrar">Cadastre-se</div>
+    </div>
   </div>
-  <div class="col-md-12">
-    <mat-form-field>
-      <input
-        matInput
-        [(ngModel)]="credenciais.senha"
-        [placeholder]="'Senha'"
-        type="password">
-    </mat-form-field>
-  </div>
-  <div class="row">
-    <button
-      mat-raised-button
-      (click)="autenticar()"
-      color="primary">
-      <i class="fa fa-check"></i>
-      Autenticar
-    </button>
-  </div>
-  <div class="row" *ngIf="loginInvalido">
-    Login ou senha inválidos
+
+  <div *ngIf="naoCadastrado" class="loginArea">
+    <div class="title">
+      <h1>IMDb</h1>
+    </div>
+    <div class="formInputs">
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          placeholder="Login"
+          [(ngModel)]="credenciais.login"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          type="password"
+          placeholder="Senha"
+          [(ngModel)]="credenciais.senha"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          type="password"
+          placeholder="Confirmar Senha"
+          [(ngModel)]="credenciais.senha"
+        />
+      </mat-form-field>
+    </div>
+    <div style="display: flex; justify-content: center;" *ngIf="loginInvalido">
+      <span style="color: #F5C518; font-weight: bold;"
+        >Usuário ou senha incorretos!</span
+      >
+    </div>
+    <div class="buttons">
+      <div (click)="cadastrar()" class="btnCadastrar">Cadastrar</div>
+    </div>
   </div>
 </div>
