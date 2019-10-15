@@ -1,0 +1,35 @@
+.contentDiv {
+  display: grid;
+  border: 1px solid rgba(0, 0, 0, 0.281);
+  border-radius: 5px;
+  grid-template-areas: "img title nota";
+  grid-template-columns: 200px 1fr 50px;
+  margin: 20px;
+}
+
+.imgClass {
+  grid-area: img;
+}
+
+.title {
+  grid-area: title;
+}
+
+.title h4 {
+  margin: 10px;
+  text-align: center;
+  font-size: 35px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.nota {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  grid-area: nota;
+  margin: 5px;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+}
