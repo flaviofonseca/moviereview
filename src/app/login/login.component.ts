@@ -10,6 +10,7 @@ import { SecurityService } from 'src/app/security/security.service';
 })
 export class LoginComponent implements OnInit {
 
+  naoCadastrado = false;
   loginInvalido = false;
   credenciais: any = {};
 
@@ -28,6 +29,10 @@ export class LoginComponent implements OnInit {
         event => this.autenticarResult(event),
         error => this.autenticarFault(error)
       );
+  }
+
+  cadastrar() {
+    this.naoCadastrado = !this.naoCadastrado;
   }
 
   private autenticarResult(result: any) {
