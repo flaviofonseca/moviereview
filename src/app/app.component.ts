@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RotasService } from './shared/services';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'moviereview';
+
+  constructor(private rotasService: RotasService) {
+
+  }
 }

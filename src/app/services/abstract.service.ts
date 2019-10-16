@@ -2,12 +2,17 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, finalize, take } from 'rxjs/operators';
 
-export interface ObjetoParametro {
+export class ObjetoParametro {
   dados?: any;
   exibirLoading?: boolean;
   dispararMensagemError?: boolean;
   enviarComoQueryString?: boolean;
-  tituloMensagemError?: string;
+
+  constructor() {
+    this.exibirLoading = true;
+    this.dispararMensagemError = true;
+    this.enviarComoQueryString = false;
+  }
 }
 
 export abstract class AbstractService {
@@ -21,6 +26,8 @@ export abstract class AbstractService {
   abstract dispararLoading();
 
   abstract removerLoading();
+
+  abstract disparaMensagemErro(mensagemErro);
 
   url(servico) {
     return `${this.getBaseURL()}${this.getRecurso()}${servico}`;
@@ -36,7 +43,7 @@ export abstract class AbstractService {
       .pipe(
         take(1),
         finalize(() => param.exibirLoading ? this.removerLoading() : null),
-        catchError(error => this.tratarErro(error, param.dispararMensagemError, param.tituloMensagemError))
+        catchError(error => this.tratarErro(error, param.dispararMensagemError))
       );
   }
 
@@ -53,37 +60,61 @@ export abstract class AbstractService {
       .pipe(
         take(1),
         finalize(() => param.exibirLoading ? this.removerLoading() : null),
-        catchError(error => this.tratarErro(error, param.dispararMensagemError, param.tituloMensagemError))
+        catchError(error => this.tratarErro(error, param.dispararMensagemError))
       );
   }
 
-  protected tratarErro(resposta: Response | any, dispararMensagemError: boolean, tituloMensagemError = '') {
-    if (dispararMensagemError) {
+  put<T>(servico: string, param: ObjetoParametro = this.newInstanceObjetoParametro()): Observable<T> {
+    if (param.exibirLoading) {
+      this.dispararLoading();
+    }
+
+    const corpo = param.enviarComoQueryString ? {} : param.dados;
+    const params = param.enviarComoQueryString ? param.dados : {};
+
+    return this.getHttpClient().put<T>(this.url(servico), corpo, { params })
+      .pipe(
+        take(1),
+        finalize(() => param.exibirLoading ? this.removerLoading() : null),
+        catchError(error => this.tratarErro(error, param.dispararMensagemError))
+      );
+  }
+
+  protected tratarErro(resposta: Response | any, dispararMensagemError: boolean) {
+    if (dispararMensagemError === undefined || dispararMensagemError) {
+
+      let mensagemDeErro: string;
       const bodyError = resposta ? resposta.error : null;
 
       if (bodyError && bodyError.hasOwnProperty('statusCode')) {
         const responseError: any = bodyError;
-        if (responseError.erros) {
-          const error = responseError.error;
-          // this.getMensagensService().exibaToastAlerta(error.message);
+        if (responseError.erros && responseError.erros.length === 1) {
+          const error = responseError.erros[0];
+          mensagemDeErro = error.message;
         }
       } else {
-        let mensagemDeErro: string;
         const body: any = resposta.error || '';
         const err = body.error || JSON.stringify(body);
-        mensagemDeErro = `${resposta.status} - ${resposta.statusText || ''} ${err}`;
+        mensagemDeErro = `${err}`;
+        // mensagemDeErro = `${resposta.status} - ${resposta.statusText || ''} ${err}`;
       }
+
+      this.disparaMensagemErro(mensagemDeErro);
     }
 
     return throwError(resposta);
   }
 
-  newInstanceObjetoParametro() {
+  newInstanceObjetoParametro(
+    dados?: any,
+    exibirLoading = true,
+    dispararMensagemError = true,
+    enviarComoQueryString = false) {
     return {
-      dados: null,
-      exibirLoading: true,
-      dispararMensagemError: true,
-      enviarComoQueryString: false,
+      dados,
+      exibirLoading,
+      dispararMensagemError,
+      enviarComoQueryString,
       tituloMensagemError: ''
     };
   }

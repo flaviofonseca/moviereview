@@ -1,32 +1,43 @@
-<table style="width:100%">
-  <tbody>
-    <tr>
-      <th>Código</th>
-      <th>Título filme</th>
-      <th>Duração</th>
-      <th>Imagem</th>
-      <th style="text-align: center;">...</th>
-    </tr>
-    <tr *ngFor="let item of provider">
-      <td>{{item.id}}</td>
-      <td>{{item.tituloFilme}}</td>
-      <td>{{item.duracaoFilme}}</td>
-      <td>
-        <img
-          [src]="item.linkImagem"
-          style="max-width: 60px;height: auto;">
-      </td>
-      <td style="text-align: center;">
-        <button
-          mat-button
-          [routerLink]="['edicao']"
-          [queryParams]="{id: item.id}">
-          <i class="fa fa-edit"></i>
-        </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<button mat-fab color="primary" [routerLink]="['edicao']">
+<mat-card>
+  <mat-card-title>
+    <h1><strong>Listagem de filmes</strong></h1>
+  </mat-card-title>
+  <mat-card-content>
+    <table style="width:100%">
+      <tbody>
+        <tr>
+          <th>Código</th>
+          <th>Título filme</th>
+          <th>Duração</th>
+          <th>Imagem</th>
+          <th style="text-align: center;">...</th>
+        </tr>
+        <tr *ngFor="let item of provider">
+          <td>{{item.id}}</td>
+          <td>{{item.tituloFilme}}</td>
+          <td>{{item.duracaoFilme}}</td>
+          <td>
+            <img
+              [src]="item.linkImagem"
+              style="max-width: 60px;height: auto;">
+          </td>
+          <td style="text-align: center;">
+            <button
+              mat-button
+              [routerLink]="['edicao']"
+              [queryParams]="{id: item.id}">
+              <i class="fa fa-edit"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-card-content>
+</mat-card>
+
+<button
+  mat-fab
+  color="primary"
+  [routerLink]="['edicao']">
   <mat-icon>add</mat-icon>
 </button>

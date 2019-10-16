@@ -1,31 +1,31 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { MovieReviewAbstractService } from './movie-review-abstract.service';
+import { HttpClient } from '@angular/common/http';
 import { MensagemService } from '../shared/services';
 
-@Injectable({ providedIn: 'root' })
-export class AutenticacaoService extends MovieReviewAbstractService {
+@Injectable({
+  providedIn: 'root'
+})
+export class UsuarioService extends MovieReviewAbstractService {
 
   constructor(
     private httpClient: HttpClient,
     private mensagemService: MensagemService
-  ) {
-    super();
+  ) { super(); }
+
+  getMensagemService() {
+    return this.mensagemService;
   }
 
   getRecurso(): string {
-    return '/auth';
+    return '/usuario';
   }
 
   getHttpClient(): HttpClient {
     return this.httpClient;
   }
 
-  getMensagemService() {
-    return this.mensagemService;
-  }
-
-  autenticar(credenciais) {
-    return this.post('', { dados: credenciais });
+  criarNovoUsuario(usuario) {
+    return this.post('', { dados: usuario });
   }
 }

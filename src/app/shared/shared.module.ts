@@ -5,15 +5,17 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [CrudFormularioComponent],
   imports: [
     CommonModule,
-    MatButtonModule
-  ], exports: [
+    MatButtonModule,
+    MatCardModule,
+  ],
+  exports: [
     CrudFormularioComponent,
-
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule

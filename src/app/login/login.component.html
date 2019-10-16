@@ -1,7 +1,9 @@
 <div class="allContent">
-  <div *ngIf="!naoCadastrado" class="loginArea">
+  <div
+    *ngIf="!naoCadastrado"
+    class="loginArea">
     <div class="title">
-      <h1>IMDb</h1>
+      <h1>IMDc</h1>
     </div>
     <div class="formInputs">
       <mat-form-field>
@@ -9,8 +11,7 @@
           matInput
           type="text"
           placeholder="Login"
-          [(ngModel)]="credenciais.login"
-        />
+          [(ngModel)]="credenciais.login">
       </mat-form-field>
 
       <mat-form-field>
@@ -19,33 +20,48 @@
           type="text"
           type="password"
           placeholder="Senha"
-          [(ngModel)]="credenciais.senha"
-        />
+          [(ngModel)]="credenciais.senha">
       </mat-form-field>
     </div>
-    <div style="display: flex; justify-content: center;" *ngIf="loginInvalido">
-      <span style="color: #F5C518; font-weight: bold;"
-        >Usuário ou senha incorretos!</span
-      >
+    <div
+      style="display: flex; justify-content: center;"
+      *ngIf="loginInvalido">
+      <span style="color: #F5C518; font-weight: bold;">Usuário ou senha incorretos!</span>
     </div>
     <div class="buttons">
-      <div (click)="autenticar()" class="btnEntrar">Entrar</div>
-      <div (click)="cadastrar()" class="btnCadastrar">Cadastre-se</div>
+      <div
+        (click)="autenticar()"
+        class="btnEntrar">
+        Entrar
+      </div>
+      <div
+        (click)="irParaFormularioNovoUsuario()"
+        class="btnCadastrar">
+        Cadastre-se
+      </div>
     </div>
   </div>
 
-  <div *ngIf="naoCadastrado" class="loginArea">
+  <div
+    *ngIf="naoCadastrado"
+    class="loginArea">
     <div class="title">
-      <h1>IMDb</h1>
+      <h1>IMDc</h1>
     </div>
     <div class="formInputs">
       <mat-form-field>
         <input
           matInput
           type="text"
+          placeholder="Nome"
+          [(ngModel)]="credenciais.nome">
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
           placeholder="Login"
-          [(ngModel)]="credenciais.login"
-        />
+          [(ngModel)]="credenciais.login">
       </mat-form-field>
 
       <mat-form-field>
@@ -54,8 +70,7 @@
           type="text"
           type="password"
           placeholder="Senha"
-          [(ngModel)]="credenciais.senha"
-        />
+          [(ngModel)]="credenciais.senha">
       </mat-form-field>
       <mat-form-field>
         <input
@@ -63,18 +78,26 @@
           type="text"
           type="password"
           placeholder="Confirmar Senha"
-          [(ngModel)]="credenciais.senha"
-        />
+          [(ngModel)]="credenciais.confimarSenha">
       </mat-form-field>
     </div>
-    <div style="display: flex; justify-content: center;" *ngIf="loginInvalido">
-      <span style="color: #F5C518; font-weight: bold;"
-        >Usuário ou senha incorretos!</span
-      >
+    <div
+      style="display: flex; justify-content: center;"
+      *ngIf="loginInvalido">
+      <span style="color: #F5C518; font-weight: bold;">Usuário ou senha incorretos!</span>
     </div>
     <div class="buttons">
-      <div (click)="cadastrar()" class="btnCadastrar">Voltar</div>
-      <div (click)="cadastrar()" class="btnCadastrar">Cadastrar</div>
+      <div
+        (click)="voltar()"
+        class="btnCadastrar">
+        Voltar
+      </div>
+      <div
+        (click)="criarNovoUsuario()"
+        class="btnCadastrar"
+        *ngIf="credenciais?.senha === credenciais?.confimarSenha && credenciais?.senha && credenciais?.confimarSenha">
+        Cadastrar
+      </div>
     </div>
   </div>
 </div>

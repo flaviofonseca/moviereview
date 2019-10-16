@@ -1,3 +1,9 @@
+.header-crud {
+  display: flex;
+  justify-content: flex-start;
+  justify-self: baseline;
+}
+
 .div-botoes {
   width: 100%;
   display: flex;
@@ -9,7 +15,7 @@
 }
 
 .botao-salvar {
-  background-color: lawngreen;
+  background-color: rgb(51, 102, 1);
 }
 
 .botao-novo {

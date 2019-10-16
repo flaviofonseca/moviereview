@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AutenticacaoService } from 'src/app/services/autenticacao.service';
 import { Router } from '@angular/router';
 import { SecurityService } from 'src/app/security/security.service';
+import { UsuarioService } from '../services/usuario.service';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +19,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private autenticacaoService: AutenticacaoService,
     private securityService: SecurityService,
-    private router: Router
+    private router: Router,
+    private usuarioService: UsuarioService
   ) { }
 
   ngOnInit() {
@@ -31,8 +34,23 @@ export class LoginComponent implements OnInit {
       );
   }
 
-  cadastrar() {
+  irParaFormularioNovoUsuario() {
     this.naoCadastrado = !this.naoCadastrado;
+  }
+
+  voltar() {
+    this.naoCadastrado = !this.naoCadastrado;
+  }
+
+  criarNovoUsuario() {
+    this.usuarioService.criarNovoUsuario(this.credenciais)
+      // .pipe(
+      //   finalize(() => this.voltar())
+      // )
+      .subscribe(
+        () => {
+          this.voltar();
+        });
   }
 
   private autenticarResult(result: any) {

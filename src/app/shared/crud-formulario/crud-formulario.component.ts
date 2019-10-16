@@ -1,4 +1,6 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { RotasService } from '../services';
 
 @Component({
   selector: 'app-crud-formulario',
@@ -15,7 +17,11 @@ export class CrudFormularioComponent implements OnInit {
 
   @Output() novoEvent = new EventEmitter();
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private rotasService: RotasService
+
+  ) { }
 
   ngOnInit() {
   }
@@ -26,5 +32,9 @@ export class CrudFormularioComponent implements OnInit {
 
   novo() {
     this.novoEvent.emit();
+  }
+
+  retorneParaPaginaAnterior() {
+    this.router.navigate([this.rotasService.getPreviousUrl()]);
   }
 }

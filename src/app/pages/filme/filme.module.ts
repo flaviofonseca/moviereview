@@ -6,6 +6,7 @@ import { FilmeCadastroComponent } from './filme-cadastro/filme-cadastro.componen
 import { FilmeListagemComponent } from './filme-listagem/filme-listagem.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
 
 const routes: Routes = [
   {
@@ -27,6 +28,7 @@ const routes: Routes = [
     CommonModule,
     MatButtonModule,
     MatIconModule,
+    MatCardModule,
     SharedModule,
     RouterModule.forChild(routes)
   ]

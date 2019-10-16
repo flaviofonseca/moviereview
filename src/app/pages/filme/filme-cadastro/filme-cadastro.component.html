@@ -19,6 +19,7 @@
           <input
             matInput
             required
+            type="number"
             formControlName="duracaoFilme"
             placeholder="Duração do filme">
           <mat-hint>Valor em minutos</mat-hint>
@@ -38,4 +39,7 @@
   <img
     *ngIf="formGroup.get('linkImagem').value"
     [src]="formGroup.get('linkImagem').value">
+  <div content-botoes-crud>
+    <!-- <button mat-stroked-button>Voltar</button> -->
+  </div>
 </app-crud-formulario>
