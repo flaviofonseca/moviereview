@@ -9,6 +9,7 @@
           <mat-form-field>
             <input
               matInput
+              cdkFocusInitial
               formControlName="notaFilme"
               placeholder="Nota"
               type="number"
@@ -30,7 +31,9 @@
     </div>
   </form>
   <div class="buttons">
-    <button class="botaoAvaliar" mat-raised-button><i style="margin-right: 2px; font-size: 12px;" class="fa fa-star" aria-hidden="true"></i>Avaliar</button>
+    <button class="botaoAvaliar" mat-raised-button [disabled]="formGroup.invalid"
+    (click)="avaliarFilme()">
+    <i style="margin-right: 2px; font-size: 12px;" class="fa fa-star" aria-hidden="true"></i>Avaliar</button>
     <button color="warn" class="botaoFechar" mat-raised-button><i style="margin-right: 2px; font-size: 12px" class="fa fa-times" aria-hidden="true"></i>Fechar</button>
   </div>
 </div>

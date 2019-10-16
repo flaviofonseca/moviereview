@@ -7,6 +7,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogAvaliacaoFilmeService } from './dialog-avaliacao-filme/dialog-avaliacao-filme.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,10 +18,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatButtonModule,
     CommonModule,
     ReactiveFormsModule,
-    FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    MatButtonModule,
+    SharedModule
   ],
   providers: [DialogAvaliacaoFilmeService],
   entryComponents: [DialogAvaliacaoFilmeComponent],

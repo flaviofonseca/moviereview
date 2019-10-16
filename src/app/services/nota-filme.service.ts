@@ -17,6 +17,10 @@ export class NotaFilmeService extends MovieReviewAbstractService {
     return this.httpClient;
   }
 
+  avaliarFilme(nota) {
+    return this.post('', nota);
+  }
+
   obterResumoNotasFilmes() {
     return this.get<any[]>('/resumoNotasFilmes');
   }

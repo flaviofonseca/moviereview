@@ -8,7 +8,7 @@ export class DialogAvaliacaoFilmeService {
 
   teste;
   constructor(
-    private dialog: MatDialog
+    public dialog: MatDialog
   ) { }
 
   openDialogAvaliacaoFilme(filme) {

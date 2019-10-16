@@ -5,6 +5,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { FilmeCadastroComponent } from './filme-cadastro/filme-cadastro.component';
 import { FilmeListagemComponent } from './filme-listagem/filme-listagem.component';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 const routes: Routes = [
   {
@@ -25,6 +26,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     MatButtonModule,
+    MatIconModule,
     SharedModule,
     RouterModule.forChild(routes)
   ]
