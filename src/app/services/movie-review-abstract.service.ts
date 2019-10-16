@@ -1,6 +1,5 @@
-import { AbstractService } from './abstract.service';
 import { environment } from 'src/environments/environment';
-import { MensagemService } from '../shared/services';
+import { AbstractService } from './abstract.service';
 
 export abstract class MovieReviewAbstractService extends AbstractService {
 
