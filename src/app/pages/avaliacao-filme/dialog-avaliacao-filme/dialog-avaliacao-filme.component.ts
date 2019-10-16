@@ -35,12 +35,14 @@ export class DialogAvaliacaoFilmeComponent implements OnInit {
   criarFormulario() {
     this.formGroup = this.fb.group({
       comentario: [],
-      notaFilme: new FormControl(1, [Validators.required, Validators.min(1), Validators.max(10)])
+      notaFilme: new FormControl(null, [Validators.required, Validators.min(1), Validators.max(10)])
     });
   }
 
   avaliarFilme() {
     const avaliacao: AvaliacaoFilme = this.formGroup.getRawValue();
+    avaliacao.codigoFilme = this.data.codigoFilme;
+
     this.notaFilmeService.avaliarFilme(avaliacao)
       .subscribe(() => {
         this.notificacaoService.showAlertInfo('Avaliação realizada!!!');

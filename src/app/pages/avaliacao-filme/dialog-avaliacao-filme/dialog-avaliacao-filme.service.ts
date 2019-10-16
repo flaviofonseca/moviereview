@@ -17,6 +17,7 @@ export class DialogAvaliacaoFilmeService {
     const options = {
       width: '600px',
       data: {
+        codigoFilme: filme.codigoFilme,
         tituloFilme: filme.tituloFilme
       }
     };
