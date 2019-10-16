@@ -1,5 +1,5 @@
 <ng-container *ngIf="!atualizandoDados; else ultimaVerificacaoTemplate">
-  <span style="color: #f5c518">{{ ultimaVerificacao | date: "dd-MMM-yy h:mm:ss a " }}</span>
+  <span style="color: #f5c518; margin: 20px;">Última atualização {{ ultimaVerificacao | date: "dd/MM/yyyy HH:mm:ss " }}</span>
 </ng-container>
 <ng-template #ultimaVerificacaoTemplate>Carregando dados</ng-template>
 
