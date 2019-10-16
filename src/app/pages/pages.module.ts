@@ -5,15 +5,13 @@ import { PagesComponent } from './pages.component';
 import { PagesRoutingModule } from './pages-routing.module';
 import { SidenavComponent } from './layout/sidenav/sidenav.component';
 import { HeaderComponent } from './layout/header/header.component';
-import { NotificacaoComponent } from './layout/notificacao/notificacao.component';
 
 
 @NgModule({
   declarations: [
     PagesComponent,
     SidenavComponent,
-    HeaderComponent,
-    NotificacaoComponent
+    HeaderComponent
   ],
   imports: [
     CommonModule,

@@ -2,8 +2,8 @@ import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NotaFilmeService } from 'src/app/services/nota-filme.service';
-import { NotificacaoService } from '../../layout/notificacao/notificacao.service';
 import { AvaliacaoFilme } from '../avaliacao-filme.model';
+import { MensagemService } from 'src/app/shared/services';
 
 export interface AvaliacaoFilmeData {
   codigoFilme: number;
@@ -24,7 +24,7 @@ export class DialogAvaliacaoFilmeComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: AvaliacaoFilmeData,
     private fb: FormBuilder,
     private notaFilmeService: NotaFilmeService,
-    private notificacaoService: NotificacaoService
+    private mensagemService: MensagemService
   ) {
     this.criarFormulario();
   }
@@ -44,10 +44,17 @@ export class DialogAvaliacaoFilmeComponent implements OnInit {
     avaliacao.codigoFilme = this.data.codigoFilme;
 
     this.notaFilmeService.avaliarFilme(avaliacao)
-      .subscribe(() => {
-        this.notificacaoService.showAlertInfo('Avaliação realizada!!!');
-        this.dialogRef.close();
-      });
+      .subscribe(
+        () => {
+          this.mensagemService.showMensagemSucesso('Avaliação realizada!!!');
+          this.fecharDialog();
+        },
+        () => this.fecharDialog()
+      );
+  }
+
+  fecharDialog() {
+    this.dialogRef.close();
   }
 
 }

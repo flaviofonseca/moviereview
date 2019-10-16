@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { MovieReviewAbstractService } from './movie-review-abstract.service';
 import { HttpClient } from '@angular/common/http';
 import { FilmeModel } from '../pages/filme/filme-cadastro/filme.model';
+import { MensagemService } from '../shared/services';
 
 @Injectable({ providedIn: 'root' })
 export class FilmeService extends MovieReviewAbstractService {
 
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private mensagemService: MensagemService
   ) {
     super();
   }
@@ -20,8 +22,16 @@ export class FilmeService extends MovieReviewAbstractService {
     return this.httpClient;
   }
 
+  getMensagemService() {
+    return this.mensagemService;
+  }
+
   salvarFilme(filme) {
-    return this.getHttpClient().post(this.url(''), filme);
+    return this.post('', { dados: filme, dispararMensagemError: true });
+  }
+
+  editarFilme(filme: any) {
+    return this.put('', { dados: filme, dispararMensagemError: true });
   }
 
   consultarFilmes() {

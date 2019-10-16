@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { FilmeService } from 'src/app/services/filme.service';
-import { NotificacaoService } from '../../layout/notificacao/notificacao.service';
 import { ActivatedRoute } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { MensagemService } from 'src/app/shared/services';
 @Component({
   selector: 'app-filme-cadastro',
   templateUrl: './filme-cadastro.component.html',
@@ -17,7 +17,7 @@ export class FilmeCadastroComponent implements OnInit {
     private router: ActivatedRoute,
     private fb: FormBuilder,
     private filmeService: FilmeService,
-    private notificacaoService: NotificacaoService
+    private mensagemService: MensagemService
   ) {
     this.criarFormulario();
     this.extrairParametros();
@@ -71,11 +71,20 @@ export class FilmeCadastroComponent implements OnInit {
   }
 
   salvarFilme() {
-    this.filmeService.salvarFilme(this.formGroup.getRawValue())
-      .subscribe(() => {
-        console.log('Salvo com sucesso');
-        this.notificacaoService.showAlertInfo('Salvo com sucesso!!!');
-      });
+    const filme = this.formGroup.getRawValue();
+
+    if (filme.id) {
+      this.filmeService.editarFilme(this.formGroup.getRawValue())
+        .subscribe(() => {
+          this.mensagemService.showMensagemSucesso('Salvo com sucesso!!!');
+        });
+    } else {
+      this.filmeService.salvarFilme(this.formGroup.getRawValue())
+        .subscribe(() => {
+          this.mensagemService.showMensagemSucesso('Salvo com sucesso!!!');
+        });
+    }
+
   }
 
 }

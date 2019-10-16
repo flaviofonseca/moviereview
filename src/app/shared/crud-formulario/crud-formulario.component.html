@@ -1,23 +1,39 @@
-<div>
-  <h1><strong>{{titulo}}</strong></h1>
-</div>
-<div>
-  <ng-content></ng-content>
-</div>
-<div class="div-botoes">
-  <button
-    mat-raised-button
-    [disabled]="desabilitarBotaoSalvar"
-    (click)="salvar()"
-    class="botao-salvar">
-    Salvar
-  </button>
-  <button
-    class="botao-novo"
-    color="primary"
-    (click)="novo()"
-    mat-raised-button>
-    Novo
-  </button>
-  <ng-content select="content-botoes-crud"></ng-content>
-</div>
+<mat-card>
+  <mat-card-title>
+    <div class="header-crud">
+      <button
+        mat-button
+        (click)="retorneParaPaginaAnterior()">
+        <i
+          class="fa fa-home"
+          style="font-size: 30px;"></i>
+      </button>
+      <h1><strong>{{titulo}}</strong></h1>
+    </div>
+  </mat-card-title>
+  <mat-card-content>
+    <ng-content></ng-content>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <div class="div-botoes">
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="desabilitarBotaoSalvar"
+        (click)="salvar()"
+        class="botao-salvar">
+        Salvar
+      </button>
+      <button
+        class="botao-novo"
+        color="primary"
+        (click)="novo()"
+        mat-raised-button>
+        Novo
+      </button>
+      <ng-content select="[content-botoes-crud]"></ng-content>
+    </div>
+  </mat-card-actions>
+
+</mat-card>

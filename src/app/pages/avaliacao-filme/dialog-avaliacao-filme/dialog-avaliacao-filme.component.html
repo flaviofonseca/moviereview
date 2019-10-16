@@ -5,35 +5,54 @@
   <form [formGroup]="formGroup">
     <div class="inputs">
       <div style="align-self: center; width: 100px;">
-        <div style="margin: 5px;" class="">
+        <div
+          style="margin: 5px;"
+          class>
           <mat-form-field>
             <input
               matInput
               cdkFocusInitial
               formControlName="notaFilme"
               placeholder="Nota"
-              type="number"
-            />
+              type="number">
+              <mat-hint>Valor de 1 a 10</mat-hint>
           </mat-form-field>
         </div>
       </div>
       <div>
-        <div class="">
+        <div class>
           <mat-form-field>
             <textarea
               matInput
               formControlName="comentario"
-              placeholder="Comentário"
-            ></textarea>
+              placeholder="Comentário"></textarea>
           </mat-form-field>
         </div>
       </div>
     </div>
   </form>
   <div class="buttons">
-    <button class="botaoAvaliar" mat-raised-button [disabled]="formGroup.invalid"
-    (click)="avaliarFilme()">
-    <i style="margin-right: 2px; font-size: 12px;" class="fa fa-star" aria-hidden="true"></i>Avaliar</button>
-    <button color="warn" class="botaoFechar" mat-raised-button><i style="margin-right: 2px; font-size: 12px" class="fa fa-times" aria-hidden="true"></i>Fechar</button>
+    <button
+      class="botaoAvaliar"
+      mat-raised-button
+      [disabled]="formGroup.invalid"
+      (click)="avaliarFilme()">
+      <i
+        style="margin-right: 2px; font-size: 12px;"
+        class="fa fa-star"
+        aria-hidden="true"></i>
+      Avaliar
+    </button>
+    <button
+      color="warn"
+      class="botaoFechar"
+      mat-dialog-close
+      mat-raised-button>
+      <i
+        style="margin-right: 2px; font-size: 12px"
+        class="fa fa-times"
+        aria-hidden="true"></i>
+      Fechar
+    </button>
   </div>
 </div>
