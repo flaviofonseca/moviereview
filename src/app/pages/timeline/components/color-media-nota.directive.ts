@@ -17,7 +17,7 @@ export class ColorMediaNotaDirective {
     let color = '';
     if (mediaNotaFilma > 7) {
       // color = '../../../../assets/greenStar.png';
-      color = 'green';
+      color = '#0bde0b';
     } else if (mediaNotaFilma < 4) {
       // color = '../../../../assets/redStar.png';
       color = 'red';

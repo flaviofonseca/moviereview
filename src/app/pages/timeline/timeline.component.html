@@ -3,25 +3,6 @@
 </ng-container>
 <ng-template #ultimaVerificacaoTemplate>Carregando dados</ng-template>
 
-<div class="contentDiv" *ngFor="let item of listaAvaliacoes">
-  <img class="imgClass" [src]="item.linkImagem" alt />
-  <div class="title">
-    <h4 style="padding-left: 25px;">
-      <strong>{{ item.tituloFilme }}</strong>
-    </h4>
-  </div>
-  <div class="star">
-    <img src="../../../assets/star.png" alt="" />
-    <div class="nota" [appColorMediaNota]="item.mediaNotas">
-      {{ item.mediaNotas | notamedia }}
-    </div>
-  </div>
-  <div class="button">
-    <i
-      style="margin-right: 6px;"
-      class="fa fa-video-camera"
-      aria-hidden="true"
-    ></i>
-    <a routerLink="." (click)="avaliarFilme(item)">Avaliar filme</a>
-  </div>
-</div>
+<ng-container *ngFor="let item of listaAvaliacoes">
+  <app-item-timeline [item]="item"></app-item-timeline>
+</ng-container>

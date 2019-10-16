@@ -2,17 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, finalize, take } from 'rxjs/operators';
 
-export class ObjetoParametro {
+export interface ObjetoParametro {
   dados?: any;
   exibirLoading?: boolean;
   dispararMensagemError?: boolean;
   enviarComoQueryString?: boolean;
 
-  constructor() {
-    this.exibirLoading = true;
-    this.dispararMensagemError = true;
-    this.enviarComoQueryString = false;
-  }
 }
 
 export abstract class AbstractService {
@@ -33,7 +28,7 @@ export abstract class AbstractService {
     return `${this.getBaseURL()}${this.getRecurso()}${servico}`;
   }
 
-  get<T>(servico: string, param: ObjetoParametro = this.newInstanceObjetoParametro()): Observable<T> {
+  get<T>(servico: string, param: ObjetoParametro = {}): Observable<T> {
 
     if (param.exibirLoading) {
       this.dispararLoading();
@@ -47,7 +42,7 @@ export abstract class AbstractService {
       );
   }
 
-  post<T>(servico: string, param: ObjetoParametro = this.newInstanceObjetoParametro()): Observable<T> {
+  post<T>(servico: string, param: ObjetoParametro = {}): Observable<T> {
 
     if (param.exibirLoading) {
       this.dispararLoading();
@@ -64,7 +59,7 @@ export abstract class AbstractService {
       );
   }
 
-  put<T>(servico: string, param: ObjetoParametro = this.newInstanceObjetoParametro()): Observable<T> {
+  put<T>(servico: string, param: ObjetoParametro = {}): Observable<T> {
     if (param.exibirLoading) {
       this.dispararLoading();
     }
@@ -105,19 +100,6 @@ export abstract class AbstractService {
     return throwError(resposta);
   }
 
-  newInstanceObjetoParametro(
-    dados?: any,
-    exibirLoading = true,
-    dispararMensagemError = true,
-    enviarComoQueryString = false) {
-    return {
-      dados,
-      exibirLoading,
-      dispararMensagemError,
-      enviarComoQueryString,
-      tituloMensagemError: ''
-    };
-  }
 
 }
 

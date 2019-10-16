@@ -13,7 +13,8 @@ export interface AvaliacaoFilmeData {
 @Component({
   selector: 'app-dialog-avaliacao-filme',
   templateUrl: './dialog-avaliacao-filme.component.html',
-  styleUrls: ['./dialog-avaliacao-filme.component.scss']
+  styleUrls: ['./dialog-avaliacao-filme.component.scss'],
+  providers: [NotaFilmeService]
 })
 export class DialogAvaliacaoFilmeComponent implements OnInit {
 
