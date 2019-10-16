@@ -16,10 +16,13 @@ export class ColorMediaNotaDirective {
   private alterarCor(mediaNotaFilma) {
     let color = '';
     if (mediaNotaFilma > 7) {
+      // color = '../../../../assets/greenStar.png';
       color = 'green';
     } else if (mediaNotaFilma < 4) {
+      // color = '../../../../assets/redStar.png';
       color = 'red';
     } else {
+      // color = '../../../../assets/yellowStar.png';
       color = 'yellow';
     }
     this.renderer.setStyle(this.el.nativeElement, 'background-color', color);
