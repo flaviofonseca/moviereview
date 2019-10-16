@@ -1,24 +1,36 @@
-<h1>Avaliar filme {{data.tituloFilme}}</h1>
-<form [formGroup]="formGroup">
-  <div class="row">
-    <div class="col-md-3">
-      <mat-form-field>
-        <input
-          matInput
-          formControlName="notaFilme"
-          placeholder="Nota"
-          type="number">
-      </mat-form-field>
+<div class="title">
+  <div class="titleLabel">{{ data.tituloFilme }}</div>
+</div>
+<div class="form">
+  <form [formGroup]="formGroup">
+    <div class="inputs">
+      <div style="align-self: center; width: 100px;">
+        <div style="margin: 5px;" class="">
+          <mat-form-field>
+            <input
+              matInput
+              formControlName="notaFilme"
+              placeholder="Nota"
+              type="number"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div>
+        <div class="">
+          <mat-form-field>
+            <textarea
+              matInput
+              formControlName="comentario"
+              placeholder="Comentário"
+            ></textarea>
+          </mat-form-field>
+        </div>
+      </div>
     </div>
+  </form>
+  <div class="buttons">
+    <button class="botaoAvaliar" mat-raised-button><i style="margin-right: 2px; font-size: 12px;" class="fa fa-star" aria-hidden="true"></i>Avaliar</button>
+    <button color="warn" class="botaoFechar" mat-raised-button><i style="margin-right: 2px; font-size: 12px" class="fa fa-times" aria-hidden="true"></i>Fechar</button>
   </div>
-  <div class="row">
-    <div class="col-md-6">
-      <mat-form-field>
-        <textarea
-          matInput
-          formControlName="comentario"
-          placeholder="Comentário"></textarea>
-      </mat-form-field>
-    </div>
-  </div>
-</form>
+</div>

@@ -6,6 +6,7 @@ import { Subject } from 'rxjs';
 @Injectable()
 export class DialogAvaliacaoFilmeService {
 
+  teste;
   constructor(
     private dialog: MatDialog
   ) { }

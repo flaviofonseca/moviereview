@@ -1,5 +1,5 @@
 <ng-container *ngIf="!atualizandoDados; else ultimaVerificacaoTemplate">
-  {{ ultimaVerificacao | date: "dd-MMM-yy h:mm:ss a " }}
+  <span style="color: #f5c518">{{ ultimaVerificacao | date: "dd-MMM-yy h:mm:ss a " }}</span>
 </ng-container>
 <ng-template #ultimaVerificacaoTemplate>Carregando dados</ng-template>
 
@@ -10,8 +10,18 @@
       <strong>{{ item.tituloFilme }}</strong>
     </h4>
   </div>
-  <div class="nota" [appColorMediaNota]="item.mediaNotas">
-    {{ item.mediaNotas | notamedia }}
+  <div class="star">
+    <img src="../../../assets/star.png" alt="" />
+    <div class="nota" [appColorMediaNota]="item.mediaNotas">
+      {{ item.mediaNotas | notamedia }}
+    </div>
   </div>
-   <a mat-button routerLink="." (click)="avaliarFilme(item)">Avaliar filme</a>
+  <div class="button">
+    <i
+      style="margin-right: 6px;"
+      class="fa fa-video-camera"
+      aria-hidden="true"
+    ></i>
+    <a routerLink="." (click)="avaliarFilme(item)">Avaliar filme</a>
+  </div>
 </div>

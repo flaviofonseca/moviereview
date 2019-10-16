@@ -6,7 +6,6 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   selector: 'app-dialog-avaliacao-filme',
   templateUrl: './dialog-avaliacao-filme.component.html',
   styleUrls: ['./dialog-avaliacao-filme.component.scss'],
-  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class DialogAvaliacaoFilmeComponent implements OnInit {
 

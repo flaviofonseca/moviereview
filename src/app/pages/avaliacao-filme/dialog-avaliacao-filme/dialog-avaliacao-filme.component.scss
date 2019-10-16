@@ -1,3 +1,71 @@
 mat-form-field {
   width: 100%;
 }
+
+::ng-deep {
+  .mat-dialog-container {
+    padding: 0;
+  }
+}
+
+.title {
+  justify-content: center;
+  padding: 12px;
+  width: 100%;
+  display: flex;
+  background: #161616;
+}
+
+.titleAvaliar {
+  font-size: 16px;
+  color: white;
+}
+
+.titleLabel {
+  color: #f5c518;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.form {
+  padding: 20px;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.botaoFechar:hover i {
+  animation: icon 1s;
+}
+
+.botaoAvaliar {
+  background: #f5c518;
+}
+
+.botaoAvaliar:hover i {
+  animation: icon 1s;
+}
+
+@keyframes icon {
+  0%, 100% {
+    font-size: 12px;
+    transform: rotate(0deg);
+  }
+
+  25% {
+    font-size: 20px;
+    transform: rotate(10deg);
+  }
+
+  50% {
+    font-size: 20px;
+    transform: rotate(-10deg);
+  }
+}
