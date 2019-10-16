@@ -24,6 +24,14 @@
   font-family: "Open Sans", sans-serif;
 }
 
+.sub-title h4 {
+  color: #8f771f;
+  margin: 10px;
+  text-align: center;
+  font-size: 15px;
+  font-family: "Open Sans", sans-serif;
+}
+
 .nota {
   position: absolute;
   top: 0;
@@ -75,4 +83,23 @@ img {
 a {
   color: #f5c518;
   font-weight: bold;
+}
+
+.comentarios {
+  grid-area: comentarios;
+  text-align: center;
+  margin-top: 30px;
+  overflow-y: auto;
+  // border: #f5c518;
+  // border-style: double;
+  height: 190px;
+}
+
+.comentarios .titulo-mensagem {
+  color: #f5c518;
+  font-weight: bold;
+}
+
+.comentarios .mensagem {
+  color: #8f771f;
 }

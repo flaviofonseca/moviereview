@@ -17,7 +17,7 @@ export class AuthGuardService implements CanActivate {
     }
 
     // Nao logado redireciona para o login com a URL atual
-    this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+    this.router.navigate(['/login']);
     return false;
   }
 }
