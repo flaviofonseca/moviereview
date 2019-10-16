@@ -41,7 +41,6 @@ export class LoginComponent implements OnInit {
   }
 
   private autenticarFault(error: any) {
-    console.log(`erorr ${error}`);
     if (error.status === 401) {
       this.loginInvalido = true;
       setTimeout(() => this.loginInvalido = false, 5000);
