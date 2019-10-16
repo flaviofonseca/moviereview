@@ -1,3 +1,4 @@
+import { MatButtonModule } from '@angular/material/button';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DialogAvaliacaoFilmeComponent } from './dialog-avaliacao-filme/dialog-avaliacao-filme.component';
@@ -14,6 +15,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     DialogAvaliacaoFilmeComponent
   ],
   imports: [
+    MatButtonModule,
     CommonModule,
     ReactiveFormsModule,
     MatFormFieldModule,

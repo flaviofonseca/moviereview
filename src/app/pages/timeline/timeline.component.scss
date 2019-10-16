@@ -16,6 +16,7 @@
 }
 
 .title h4 {
+  color: #f5c518;
   margin: 10px;
   text-align: center;
   font-size: 35px;
@@ -23,13 +24,54 @@
 }
 
 .nota {
+  position: absolute;
+  top: 0;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 5px;
   grid-area: nota;
   margin: 5px;
-  width: 40px;
-  height: 40px;
   border-radius: 100%;
+}
+
+.star {
+  position: relative;
+}
+
+img {
+  width: 100%;
+}
+
+.button {
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #161616;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: #f5c518;
+}
+
+.button:hover {
+  background: #8f771f;
+  color: #161616;
+  transition: 0.5s;
+}
+
+.button:hover a {
+  color: #161616;
+  transition: 0.5s;
+}
+
+.button i {
+  font-size: 15px;
+}
+
+a {
+  color: #f5c518;
+  font-weight: bold;
 }

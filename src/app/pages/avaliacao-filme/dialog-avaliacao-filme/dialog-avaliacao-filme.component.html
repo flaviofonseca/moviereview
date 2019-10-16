@@ -1,42 +1,39 @@
-<h1>Avaliar filme {{data.codigoFilme}} - {{data.tituloFilme}}</h1>
-<form [formGroup]="formGroup">
-  <div class="row">
-    <div class="col-md-3">
-      <mat-form-field>
-        <input
-          matInput
-          formControlName="notaFilme"
-          placeholder="Nota"
-          cdkFocusInitial
-          type="number">
-      </mat-form-field>
+<div class="title">
+  <div class="titleLabel">{{ data.tituloFilme }}</div>
+</div>
+<div class="form">
+  <form [formGroup]="formGroup">
+    <div class="inputs">
+      <div style="align-self: center; width: 100px;">
+        <div style="margin: 5px;" class="">
+          <mat-form-field>
+            <input
+              matInput
+              cdkFocusInitial
+              formControlName="notaFilme"
+              placeholder="Nota"
+              type="number"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div>
+        <div class="">
+          <mat-form-field>
+            <textarea
+              matInput
+              formControlName="comentario"
+              placeholder="Comentário"
+            ></textarea>
+          </mat-form-field>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <mat-form-field>
-        <textarea
-          matInput
-          formControlName="comentario"
-          placeholder="Comentário"></textarea>
-      </mat-form-field>
-    </div>
-  </div>
-</form>
-<div
-  mat-dialog-actions
-  class="div-actions">
-  <button
-    mat-stroked-button
-    color="primary"
-    [disabled]="formGroup.invalid"
+  </form>
+  <div class="buttons">
+    <button class="botaoAvaliar" mat-raised-button [disabled]="formGroup.invalid"
     (click)="avaliarFilme()">
-    Avaliar filme
-  </button>
-  <button
-    mat-stroked-button
-    color="warn"
-    mat-dialog-close>
-    Fechar
-  </button>
+    <i style="margin-right: 2px; font-size: 12px;" class="fa fa-star" aria-hidden="true"></i>Avaliar</button>
+    <button color="warn" class="botaoFechar" mat-raised-button><i style="margin-right: 2px; font-size: 12px" class="fa fa-times" aria-hidden="true"></i>Fechar</button>
+  </div>
 </div>
