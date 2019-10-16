@@ -3,7 +3,7 @@ import { MovieReviewAbstractService } from './movie-review-abstract.service';
 import { HttpClient } from '@angular/common/http';
 import { MensagemService } from '../shared/services';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class NotaFilmeService extends MovieReviewAbstractService {
 
   constructor(
@@ -29,5 +29,9 @@ export class NotaFilmeService extends MovieReviewAbstractService {
 
   obterResumoNotasFilmes() {
     return this.get<any[]>('/resumoNotasFilmes');
+  }
+
+  consultarAvaliacoes(codigoFilme) {
+    return this.get<any[]>('/consultarTodos', { dados: { codigoFilme } });
   }
 }

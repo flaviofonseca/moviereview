@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { SecurityService } from 'src/app/security/security.service';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,13 @@ export class HeaderComponent implements OnInit {
   @Output() sidenavChange = new EventEmitter();
   @Output() logoutApp = new EventEmitter();
 
-  constructor() { }
+  usuarioLogado;
+
+  constructor(
+    private security: SecurityService
+  ) {
+    this.usuarioLogado = security.obterUsuarioLogado();
+  }
 
   ngOnInit() {
   }

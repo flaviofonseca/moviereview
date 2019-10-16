@@ -7,7 +7,8 @@ import { DialogAvaliacaoFilmeService } from '../avaliacao-filme/dialog-avaliacao
 @Component({
   selector: 'app-timeline',
   templateUrl: './timeline.component.html',
-  styleUrls: ['./timeline.component.scss']
+  styleUrls: ['./timeline.component.scss'],
+  providers: [NotaFilmeService]
 })
 export class TimelineComponent implements OnInit, OnDestroy {
 
@@ -60,10 +61,6 @@ export class TimelineComponent implements OnInit, OnDestroy {
     this.listaAvaliacoes = event;
 
     this.ultimaVerificacao = new Date();
-  }
-
-  avaliarFilme(filme) {
-    this.dialogAvaliacaoService.openDialogAvaliacaoFilme(filme);
   }
 
 }

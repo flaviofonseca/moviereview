@@ -1,34 +1,47 @@
 <header class="header-4">
-    <div style="padding: 0;" class="branding">
-      <div
-        class="nav-link"
-        style="cursor: pointer;">
-        <clr-icon
+  <div
+    style="padding: 0;"
+    class="branding">
+    <div
+      class="nav-link"
+      style="cursor: pointer;">
+      <clr-icon
         style="color: #F5C518; font-weight: bold;"
         shape="video-camera"
-          (click)="sidenavChangeEvent()"></clr-icon>
-        <span style="color: #F5C518; font-weight: bold;" class="title">Movie Review</span>
-      </div>
+        (click)="sidenavChangeEvent()"></clr-icon>
+      <span
+        style="color: #F5C518; font-weight: bold;"
+        class="title">Movie Review</span>
     </div>
+  </div>
 
-    <div class="header-actions">
-      <clr-dropdown>
-        <button
-          class="nav-icon"
-          clrDropdownTrigger>
-          <clr-icon shape="cog"></clr-icon>
-          <clr-icon shape="caret down"></clr-icon>
-        </button>
-        <clr-dropdown-menu
-          *clrIfOpen
-          clrPosition="bottom-right">
-          <a
-            clrDropdownItem
-            (click)="logoutAppEvent()">
-            <clr-icon shape="logout"></clr-icon>
-            <span class="icon-shape-name">Sair</span>
-          </a>
-        </clr-dropdown-menu>
-      </clr-dropdown>
-    </div>
-  </header>
+  <div class="header-actions">
+    <a
+      href="javascript://"
+      style="color: #F5C518; font-weight: bold;"
+      class="nav-link nav-icon-text">
+      <clr-icon shape="user"></clr-icon>
+      <span class="nav-text">{{usuarioLogado.nome}}</span>
+    </a>
+    <clr-dropdown>
+      <button
+        class="nav-icon"
+        clrDropdownTrigger>
+        <clr-icon
+          shape="cog"
+          style="color: #F5C518; font-weight: bold;"></clr-icon>
+        <clr-icon shape="caret down"></clr-icon>
+      </button>
+      <clr-dropdown-menu
+        *clrIfOpen
+        clrPosition="bottom-right">
+        <a
+          clrDropdownItem
+          (click)="logoutAppEvent()">
+          <clr-icon shape="logout"></clr-icon>
+          <span class="icon-shape-name">Sair</span>
+        </a>
+      </clr-dropdown-menu>
+    </clr-dropdown>
+  </div>
+</header>
