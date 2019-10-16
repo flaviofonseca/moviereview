@@ -34,6 +34,8 @@ export class TimelineComponent implements OnInit, OnDestroy {
     if (this.resumoNotasFilmes$) {
       this.resumoNotasFilmes$.unsubscribe();
     }
+
+    this.dialogAvaliacaoService.dialog.closeAll();
   }
 
   carregarResumoNotasFilmes() {

@@ -27,8 +27,6 @@ export class FilmeCadastroComponent implements OnInit {
     this.router.queryParams
       .pipe(filter(params => params.id))
       .subscribe(params => {
-        console.log(`cadastro id ${params.id}`);
-
         this.consultarFilme(params.id);
       });
 

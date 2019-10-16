@@ -1,4 +1,4 @@
-import { Directive, Input, ElementRef } from '@angular/core';
+import { Directive, Input, ElementRef, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[appColorMediaNota]'
@@ -9,7 +9,7 @@ export class ColorMediaNotaDirective {
     this.alterarCor(v);
   }
 
-  constructor(private el: ElementRef) {
+  constructor(private el: ElementRef, private renderer: Renderer2) {
 
   }
 
@@ -22,6 +22,6 @@ export class ColorMediaNotaDirective {
     } else {
       color = 'yellow';
     }
-    this.el.nativeElement.style.backgroundColor = color;
+    this.renderer.setStyle(this.el.nativeElement, 'background-color', color);
   }
 }

@@ -37,8 +37,5 @@ export class FilmeListagemComponent implements OnInit {
     this.filmeService.consultarFilmes().subscribe(args => this.provider = args);
   }
 
-  editar(item) {
-
-  }
 
 }

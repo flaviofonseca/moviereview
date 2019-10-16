@@ -7,7 +7,7 @@ import { Subject } from 'rxjs';
 export class DialogAvaliacaoFilmeService {
 
   constructor(
-    private dialog: MatDialog
+    public dialog: MatDialog
   ) { }
 
   openDialogAvaliacaoFilme(filme) {
