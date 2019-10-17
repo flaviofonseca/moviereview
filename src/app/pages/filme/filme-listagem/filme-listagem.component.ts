@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FilmeService } from 'src/app/services/filme.service';
+import { FilmeService } from 'src/app/core/services/filme.service';
 import { Router, NavigationStart, ActivatedRoute } from '@angular/router';
 import { filter } from 'rxjs/operators';
 

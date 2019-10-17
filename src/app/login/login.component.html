@@ -29,19 +29,22 @@
       <span style="color: #F5C518; font-weight: bold;">Usuário ou senha incorretos!</span>
     </div>
     <div class="buttons">
-      <div
+      <button
+        mat-raised-button
         (click)="autenticar()"
         class="btnEntrar">
         Entrar
-      </div>
-      <div
+      </button>
+      <button
+        mat-raised-button
         (click)="irParaFormularioNovoUsuario()"
         class="btnCadastrar">
         Cadastre-se
-      </div>
+      </button>
     </div>
   </div>
 
+  <!-- Cadastro -->
   <div
     *ngIf="naoCadastrado"
     class="loginArea">
@@ -87,17 +90,19 @@
       <span style="color: #F5C518; font-weight: bold;">Usuário ou senha incorretos!</span>
     </div>
     <div class="buttons">
-      <div
+      <button
+        mat-raised-button
         (click)="voltar()"
         class="btnCadastrar">
         Voltar
-      </div>
-      <div
+      </button>
+      <button
+        mat-raised-button
         (click)="criarNovoUsuario()"
         class="btnCadastrar"
-        *ngIf="credenciais?.senha === credenciais?.confimarSenha && credenciais?.senha && credenciais?.confimarSenha">
+        [disabled]="credenciais?.senha !== credenciais?.confimarSenha && credenciais?.senha && credenciais?.confimarSenha">
         Cadastrar
-      </div>
+      </button>
     </div>
   </div>
 </div>

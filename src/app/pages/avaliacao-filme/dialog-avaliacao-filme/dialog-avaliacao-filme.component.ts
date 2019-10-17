@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { NotaFilmeService } from 'src/app/services/nota-filme.service';
+import { NotaFilmeService } from 'src/app/core/services/nota-filme.service';
 import { AvaliacaoFilme } from '../avaliacao-filme.model';
 import { MensagemService } from 'src/app/shared/services';
 

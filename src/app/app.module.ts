@@ -7,8 +7,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SnackBarMensagemModule } from './components/snack-bar-mensagem/snack-bar-mensagem.module';
-import { AuthInterceptorService } from './security/auth-interceptor.service';
+import { SnackBarMensagemModule } from './core/components/snack-bar-mensagem/snack-bar-mensagem.module';
+import { AuthInterceptorService } from './core/security/auth-interceptor.service';
 
 registerLocaleData(localePt, 'pt');
 @NgModule({

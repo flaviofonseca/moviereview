@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MovieReviewAbstractService } from './movie-review-abstract.service';
-import { MensagemService } from '../shared/services';
+import { MensagemService } from '../../shared/services';
 
 @Injectable({ providedIn: 'root' })
 export class AutenticacaoService extends MovieReviewAbstractService {

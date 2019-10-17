@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AutenticacaoService } from 'src/app/services/autenticacao.service';
+import { AutenticacaoService } from 'src/app/core/services/autenticacao.service';
 import { Router } from '@angular/router';
-import { SecurityService } from 'src/app/security/security.service';
-import { UsuarioService } from '../services/usuario.service';
+import { SecurityService } from 'src/app/core/security/security.service';
+import { UsuarioService } from '../core/services/usuario.service';
 import { finalize } from 'rxjs/operators';
 
 @Component({

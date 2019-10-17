@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { NotaFilmeService } from 'src/app/services/nota-filme.service';
+import { NotaFilmeService } from 'src/app/core/services/nota-filme.service';
 import { Subscription, interval } from 'rxjs';
 import { take, switchMap, map, finalize } from 'rxjs/operators';
 import { DialogAvaliacaoFilmeService } from '../avaliacao-filme/dialog-avaliacao-filme/dialog-avaliacao-filme.service';
