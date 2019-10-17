@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { FilmeService } from 'src/app/core/services/filme.service';
 import { ActivatedRoute } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { MensagemService } from 'src/app/shared/services';
+import { SnackBarService } from 'src/app/shared/services';
 @Component({
   selector: 'app-filme-cadastro',
   templateUrl: './filme-cadastro.component.html',
@@ -17,7 +17,7 @@ export class FilmeCadastroComponent implements OnInit {
     private router: ActivatedRoute,
     private fb: FormBuilder,
     private filmeService: FilmeService,
-    private mensagemService: MensagemService
+    private mensagemService: SnackBarService
   ) {
     this.criarFormulario();
     this.extrairParametros();

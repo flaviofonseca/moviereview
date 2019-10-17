@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NotaFilmeService } from 'src/app/core/services/nota-filme.service';
 import { AvaliacaoFilme } from '../avaliacao-filme.model';
-import { MensagemService } from 'src/app/shared/services';
+import { SnackBarService } from 'src/app/shared/services';
 
 export interface AvaliacaoFilmeData {
   codigoFilme: number;
@@ -25,7 +25,7 @@ export class DialogAvaliacaoFilmeComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: AvaliacaoFilmeData,
     private fb: FormBuilder,
     private notaFilmeService: NotaFilmeService,
-    private mensagemService: MensagemService
+    private mensagemService: SnackBarService
   ) {
     this.criarFormulario();
   }

@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { MovieReviewAbstractService } from './movie-review-abstract.service';
 import { HttpClient } from '@angular/common/http';
-import { MensagemService } from '../../shared/services';
+import {  SnackBarService } from '../../shared/services';
 
 @Injectable()
 export class NotaFilmeService extends MovieReviewAbstractService {
 
   constructor(
     private httpClient: HttpClient,
-    private mensagemService: MensagemService
+    private mensagemService: SnackBarService
   ) { super(); }
 
   getRecurso(): string {
