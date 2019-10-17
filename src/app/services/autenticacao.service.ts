@@ -26,6 +26,6 @@ export class AutenticacaoService extends MovieReviewAbstractService {
   }
 
   autenticar(credenciais) {
-    return this.post('', { dados: credenciais });
+    return this.post('', { dados: credenciais, dispararMensagemError: false });
   }
 }

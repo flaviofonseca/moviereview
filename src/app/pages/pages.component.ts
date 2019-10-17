@@ -22,6 +22,7 @@ export class PagesComponent implements OnInit {
   }
 
   logoutApp() {
+    sessionStorage.clear();
     this.router.navigate(['/']);
   }
 }

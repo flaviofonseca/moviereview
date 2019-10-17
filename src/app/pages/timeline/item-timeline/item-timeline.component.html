@@ -7,14 +7,27 @@
     <h4 style="padding-left: 25px;">
       <strong>{{ item.tituloFilme }}</strong>
     </h4>
-  </div>
-  <ng-container *ngFor="let avaliacao of avaliacoes">
-    <div style="color: yellow;">
-      <span style="font-weight: bold;">{{avaliacao.nomeUsuario}}</span>
-      Nota: {{avaliacao.avaliacaoUsuario}}
-      <span>{{avaliacao.comentario}}</span>
+    <span class="sub-title"><h4>
+        Total de votos {{item.quantidadeNotas}}
+    </h4>
+    </span>
+
+    <div class="comentarios">
+      <ng-container
+        style="margin-top: 30px;"
+        *ngFor="let avaliacao of avaliacoes">
+        <div>
+          <span class="titulo-mensagem">Usuário: </span>
+          <span class="mensagem">{{avaliacao.nomeUsuario}}</span>
+          <span class="titulo-mensagem"> Nota: </span>
+          <span class="mensagem">{{avaliacao.avaliacaoUsuario}}</span>
+          <span class="titulo-mensagem"> Comentário: </span>
+          <span class="mensagem">{{avaliacao.comentario}}</span>
+        </div>
+      </ng-container>
     </div>
-  </ng-container>
+  </div>
+
   <div class="star">
     <!-- <img
       src="../../../assets/star.png"

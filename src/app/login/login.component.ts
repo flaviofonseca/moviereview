@@ -34,25 +34,6 @@ export class LoginComponent implements OnInit {
       );
   }
 
-  irParaFormularioNovoUsuario() {
-    this.naoCadastrado = !this.naoCadastrado;
-  }
-
-  voltar() {
-    this.naoCadastrado = !this.naoCadastrado;
-  }
-
-  criarNovoUsuario() {
-    this.usuarioService.criarNovoUsuario(this.credenciais)
-      // .pipe(
-      //   finalize(() => this.voltar())
-      // )
-      .subscribe(
-        () => {
-          this.voltar();
-        });
-  }
-
   private autenticarResult(result: any) {
     this.securityService.adicionarUsuarioLogado(result);
     this.router.navigate(['/pages']);
@@ -64,4 +45,18 @@ export class LoginComponent implements OnInit {
       setTimeout(() => this.loginInvalido = false, 5000);
     }
   }
+
+  irParaFormularioNovoUsuario() {
+    this.naoCadastrado = !this.naoCadastrado;
+  }
+
+  voltar() {
+    this.naoCadastrado = !this.naoCadastrado;
+  }
+
+  criarNovoUsuario() {
+    this.usuarioService.criarNovoUsuario(this.credenciais)
+      .subscribe(() => this.voltar());
+  }
+
 }
