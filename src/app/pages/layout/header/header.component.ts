@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { SecurityService } from 'src/app/security/security.service';
+import { SecurityService } from 'src/app/core/security/security.service';
 
 @Component({
   selector: 'app-header',

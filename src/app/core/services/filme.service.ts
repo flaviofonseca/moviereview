@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { MovieReviewAbstractService } from './movie-review-abstract.service';
 import { HttpClient } from '@angular/common/http';
-import { FilmeModel } from '../pages/filme/filme-cadastro/filme.model';
-import { MensagemService } from '../shared/services';
+import { FilmeModel } from '../../pages/filme/filme-cadastro/filme.model';
+import { MensagemService } from '../../shared/services';
 
 @Injectable({ providedIn: 'root' })
 export class FilmeService extends MovieReviewAbstractService {

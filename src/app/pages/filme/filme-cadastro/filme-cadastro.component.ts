@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { FilmeService } from 'src/app/services/filme.service';
+import { FilmeService } from 'src/app/core/services/filme.service';
 import { ActivatedRoute } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { MensagemService } from 'src/app/shared/services';
